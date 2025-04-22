@@ -1,0 +1,23 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap');
+
+.auth__register-confirm {
+    padding-top: 10vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .auth__register-confirm h1 {
+        font-family: "Fira Sans", sans-serif;
+        font-size: 35px;
+        padding-bottom: 10px;
+        color: white;
+    }
+
+    .auth__register-confirm p {
+        font-family: "Fira Sans", sans-serif;
+        font-size: 18px;
+        color: white;
+    }

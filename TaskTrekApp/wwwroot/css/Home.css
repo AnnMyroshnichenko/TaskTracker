@@ -1,0 +1,116 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(166deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.white-text {
+    color: white;
+}
+
+#task-name {
+    padding: 8px;
+    width: 700px;
+    border-radius: 15px;
+}
+
+#task-deadline {
+    padding: 8px;
+    width: 200px;
+    border-radius: 15px;
+}
+
+.input {
+    display: flex;
+    gap: 30px;  
+}
+
+button {
+    padding: 8px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tag { 
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 2px solid #007bff;
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tag-option {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.columns {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    background: #ddd;
+    padding: 10px;
+    min-height: 500px;
+    border-radius: 15px;
+}
+
+.column-header {
+    background: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    gap: 10px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 40px;
+}
+
+.task-card {
+    flex: 1;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-card img {
+    width: 22px;
+    height: 22px;
+}
+
+.task-list {
+    max-height: 400px; 
+    overflow-y: auto;
+    padding-right: 5px; 
+}
+
+    .task-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .task-list::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+    }

@@ -1,0 +1,59 @@
+﻿@model TaskTrekApp.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="main-container">
+    <h2 class="white-text">Task Tracker</h2>
+    <h5 class="white-text">Stay on track, get things done!</h5>
+    <div class="task-input">
+        <input type="text" id="task-name" placeholder="Enter task name">
+        <input type="date" id="task-deadline" placeholder="Set deadline" />
+        <button type="button" id="add-task-btn">Add Task</button>
+    </div>
+
+    <div class="tags">
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="tag">
+                <input type="radio" id="tag-@tag.TagId" name="selectedTag" class="tag-option" value="@tag.TagId" />
+                <label class="white-text" for="tag-@tag.TagId">@tag.Name</label>
+            </div>
+        }
+    </div>
+
+
+    <div class="columns">
+        @foreach (var column in new[] { new { Id = 1, Name = "To Do", Icon = "goal.jpg" },
+        new { Id = 2, Name = "In Progress", Icon = "star.jpg" },
+        new { Id = 3, Name = "Done", Icon = "green_double_circle_check_mark.jpg" } })
+        {
+            <div class="column" data-column-id="@column.Id" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="column-header">
+                    <img class="icon" src="~/images/@column.Icon" />
+                    <h2>@column.Name</h2>
+                </div>
+                <div class="task-list">
+                    @foreach (var task in Model.Cards.Where(x => x.ColumnId == column.Id))
+                    {
+                        <div class="task-card" draggable="true" ondragstart="drag(event)" id="task-@task.TaskId" data-task-id="@task.TaskId">
+                            <div>
+                                <h5>@task.Title</h5>
+                                <div class="task-card-tag">@task.Tag.Name</div>
+                                <div class="task-card-tag">Due to: @task.Deadline.ToString("dd.MM.yyyy")</div>
+                            </div>
+                            <img src="~/images/trash.png" />
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="~/js/Home.js"></script>
+}
